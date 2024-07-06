@@ -1,36 +1,47 @@
 {
-  "name": "vue-fortune-wheel",
-  "version": "2.1.0",
+  "name": "vue-wheel-of-names",
+  "version": "0.1.0",
   "type": "module",
   "author": "Xiaolin Zhu",
+  "contributors": [
+    {
+      "name": "Muhammad Dyas Yaskur",
+      "email": "dyas@yaskur.com",
+      "url": "https://www.yaskur.com"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "email": "290353548@qq.com"
   },
   "keywords": [
+    "wheel-of-names",
     "wheel-of-fortune",
+    "vue-wheel-of-names",
     "vue-wheel-of-fortune",
     "vue-lucky-wheel",
-    "vue-luckywheel",
+    "vue-picker-wheel",
     "vue-wheel",
+    "vue-random-picker",
     "vue-turntable",
-    "vue-turnplate",
-    "vue转盘",
-    "vue-转盘"
+    "vue-turnplate"
   ],
-  "description": "Component \"Wheel of Fortune\" for Vue",
+  "description": "Component \"Wheel of Names\" for Vue",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
+    "generate:types": "vue-tsc --declaration --emitDeclarationOnly --outdir ./dist",
     "preview": "vite preview"
   },
-  "files": ["dist"],
-  "main": "./dist/vue-fortune-wheel.umd.cjs",
-  "module": "./dist/vue-fortune-wheel.js",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue-wheel-of-names.umd.cjs",
+  "module": "./dist/vue-wheel-of-names.js",
   "exports": {
     ".": {
-      "import": "./dist/vue-fortune-wheel.js",
-      "require": "./dist/vue-fortune-wheel.umd.cjs"
+      "import": "./dist/vue-wheel-of-names.js",
+      "require": "./dist/vue-wheel-of-names.cjs"
     },
     "./style.css": "./dist/style.css"
   },

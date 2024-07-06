@@ -1,3 +1,3 @@
-import FortuneWheel from './FortuneWheel/index.vue'
+import WheelOfNames from './WheelOfNames/index.vue'
 
-export default FortuneWheel
+export default WheelOfNames

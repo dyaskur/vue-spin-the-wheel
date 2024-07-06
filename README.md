@@ -1,24 +1,18 @@
 
-# Vue-Fortune-Wheel For Vue3
+# Vue-Wheel-Of-Names For Vue3
 
-Component name: Wheel of Fortune, Wheel of Fortune, Wheel of Fortune
+Component name: Wheel of Name, Wheel of Fortune, Wheel of Fortune
 
-Application scenario: lottery
-
-## For Vue2
-[Viewing Documents](https://github.com/XiaoLin1995/vue-fortune-wheel/tree/vue2)
+Application scenario: choosing door prize winner
 
 ## Install
 ```
-yarn add vue-fortune-wheel
+yarn add vue-wheel-of-names
 ```
 or
 ```
-npm install vue-fortune-wheel
+npm install vue-wheel-of-names
 ```
-## Language
-
-[English (By Google Translate)](./README.md)| [中文](./README.CN.md)
 
 ## Demo
 
@@ -66,8 +60,8 @@ https://xiaolin1995.github.io/vue-fortune-wheel/demo/
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
-import FortuneWheel from 'vue-fortune-wheel'
-import 'vue-fortune-wheel/style.css'
+import FortuneWheel from 'vue-wheel-of-names'
+import 'vue-wheel-of-names/style.css'
 
 const prizeId = ref(0)
 

@@ -4,7 +4,7 @@
       <div class="col-md-6">
         <h2> Canvas </h2>
 
-        <FortuneWheel
+        <WheelOfNames
           style="width: 500px; max-width: 100%;"
           :verify="canvasVerify"
           :canvas="canvasOptions"
@@ -20,7 +20,7 @@
       <div class="col-md-6">
         <h2> Image </h2>
 
-        <FortuneWheel
+        <WheelOfNames
           style="width: 500px; max-width: 100%;"
           type="image"
           :useWeight="true"
@@ -37,7 +37,7 @@
           <template #button>
             <img src="./assets/button.png" style="width: 180px"/>
           </template>
-        </FortuneWheel>
+        </WheelOfNames>
 
         <div class="btn-list">
           <div class="btn" v-for="(item, idx) in prizesCanvas" :key="idx" :style="{ background: item.bgColor }" @click="onChangePrize(item.id)"></div>
@@ -54,8 +54,8 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import FortuneWheel from './components/FortuneWheel/index.vue'
-import { PrizeConfig } from './components/FortuneWheel/types'
+import WheelOfNames from './components/WheelOfNames/index.vue'
+import { PrizeConfig } from './components/WheelOfNames/types'
 
 const prizeId = ref(0)
 
@@ -153,7 +153,7 @@ function onRotateEnd (prize: PrizeConfig) {
 function onChangePrize (id: number) {
   prizeId.value = id
 }
-  
+
 </script>
 
 <style lang="scss" scoped>
