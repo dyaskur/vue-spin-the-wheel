@@ -1,6 +1,6 @@
 {
-  "name": "vue-wheel-of-names",
-  "version": "0.2.0",
+  "name": "vue-spin-the-wheel",
+  "version": "1.0.0",
   "type": "module",
   "author": "Xiaolin Zhu",
   "contributors": [
@@ -16,15 +16,15 @@
   },
   "keywords": [
     "wheel-of-names",
+    "spin-the-wheel",
     "wheel-of-fortune",
-    "vue-wheel-of-names",
+    "vue-spin-the-wheel",
     "vue-wheel-of-fortune",
     "vue-lucky-wheel",
     "vue-picker-wheel",
+    "vue-spinning-wheel",
     "vue-wheel",
-    "vue-random-picker",
-    "vue-turntable",
-    "vue-turnplate"
+    "vue-random-picker"
   ],
   "description": "Component \"Wheel of Names\" for Vue",
   "scripts": {
@@ -36,12 +36,12 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/vue-wheel-of-names.umd.cjs",
-  "module": "./dist/vue-wheel-of-names.js",
+  "main": "./dist/vue-spin-the-wheel.umd.cjs",
+  "module": "./dist/vue-spin-the-wheel.js",
   "exports": {
     ".": {
-      "import": "./dist/vue-wheel-of-names.js",
-      "require": "./dist/vue-wheel-of-names.cjs"
+      "import": "./dist/vue-spin-the-wheel.js",
+      "require": "./dist/vue-spin-the-wheel.cjs"
     },
     "./style.css": "./dist/style.css"
   },
@@ -53,7 +53,7 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.194",
-    "@vitejs/plugin-vue": "^4.1.0",
+    "@vitejs/plugin-vue": "^5.0.0",
     "sass": "^1.62.1",
     "typescript": "^5.0.2",
     "vite": "^5.2.6",

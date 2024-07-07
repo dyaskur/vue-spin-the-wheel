@@ -1,23 +1,27 @@
 
-# Vue-Wheel-Of-Names For Vue3
+# Vue-Spin-The-Wheel For Vue3
+<p align="center">
 
-Component name: Wheel of Name, Wheel of Fortune, Wheel of Fortune
+_Alternative name: Wheel of Names, Wheel of Fortune, Spin the wheel_
 
-Application scenario: choosing door prize winner
+"Spin the Wheel" is a versatile digital tool designed to randomly select a name or item from a list.
+It is commonly used in various settings such as classrooms, meetings, raffles, and any situation requiring a random selection.
+This Vue component simplifies the creation and integration of a spin-the-wheel feature into your Vue3 applications, offering an engaging and interactive experience for users.
+</p>
 
 ## Install
 ```
-yarn add vue-wheel-of-names
+yarn add vue-spin-the-wheel
 ```
 or
 ```
-npm install vue-wheel-of-names
+npm install vue-spin-the-wheel
 ```
 
 ## Demo
 
 ### online
-https://xiaolin1995.github.io/vue-fortune-wheel/demo/
+https://vue-spin-the-wheel.yaskur.com
 
 ## Usage
 
@@ -25,7 +29,7 @@ https://xiaolin1995.github.io/vue-fortune-wheel/demo/
 <template>
   <div>
     <!-- type: image -->
-    <FortuneWheel
+    <SpinTheWheel
       style="width: 500px; max-width: 100%;"
       ref="wheelEl"
       type="image"
@@ -43,11 +47,11 @@ https://xiaolin1995.github.io/vue-fortune-wheel/demo/
       <template #button>
         <img src="./assets/button.png" style="width: 180px"/>
       </template>
-    </FortuneWheel>
+    </SpinTheWheel>
 
 
     <!-- type: canvas -->
-    <FortuneWheel
+    <SpinTheWheel
       style="width: 500px; max-width: 100%;"
       :verify="canvasVerify"
       :canvas="canvasOptions"
@@ -60,8 +64,8 @@ https://xiaolin1995.github.io/vue-fortune-wheel/demo/
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
-import FortuneWheel from 'vue-wheel-of-names'
-import 'vue-wheel-of-names/style.css'
+import SpinTheWheel from 'vue-spin-the-wheel'
+import 'vue-spin-the-wheel/style.css'
 
 const prizeId = ref(0)
 
@@ -169,18 +173,18 @@ function onChangePrize (id) {
 </script>
 ```
 
-## FortuneWheel Events
+## SpinTheWheel Events
 | Event name | Description | Callback parameters |
 | ------ | ------ | ------ |
 | rotateStart | Triggered when the dial button is clicked | When `verify` is `true`, there will be a callback, and the callback function will be called to start spinning |
 | rotateEnd | Triggered at the end of the turntable animation | The entire prize Object |
 
-## FortuneWheel Methods
+## SpinTheWheel Methods
 | Event name | Description | Callback parameters |
 | ------ | ------ | ------ |
 | startRotate | Can trigger rotation | When `verify` is `true`, the callback function is triggered in the rotateStart event |
 
-## FortuneWheel Attributes
+## SpinTheWheel Attributes
 | Parameters | Description | Type | Default Value |
 | ------ | ------ | ------ | ----- |
 | type | Type of turntable (canvas, image) | String | canvas |
@@ -203,3 +207,9 @@ function onChangePrize (id) {
 | prizeId | Specify the id, it will spin to the prize of this id every time (when it is 0, the value can be changed during the rotation according to the probability of each prize itself to complete various show operations) | Number | 0 |
 | prizes | Prize list (structure reference Usage) | Array | / |
 
+### 📑 License
+
+Vue Spin The Wheel is available under the [MIT](http://opensource.org/licenses/MIT) software license.
+
+---
+_This Vue3 component is originally derived from [vue-fortune-wheel](https://github.com/XiaoLin1995/vue-fortune-wheel). However, it lacked certain features that I needed. Therefore, I forked the project and added more features and capabilities to enhance its functionality and versatility._

@@ -4,7 +4,7 @@
       <div class="col-md-6">
         <h2> Canvas </h2>
 
-        <WheelOfNames
+        <SpinTheWheel
           style="width: 500px; max-width: 100%;"
           :verify="canvasVerify"
           :canvas="canvasOptions"
@@ -20,7 +20,7 @@
       <div class="col-md-6">
         <h2> Image </h2>
 
-        <WheelOfNames
+        <SpinTheWheel
           style="width: 500px; max-width: 100%;"
           type="image"
           :useWeight="true"
@@ -37,7 +37,7 @@
           <template #button>
             <img src="./assets/button.png" style="width: 180px"/>
           </template>
-        </WheelOfNames>
+        </SpinTheWheel>
 
         <div class="btn-list">
           <div class="btn" v-for="(item, idx) in prizesCanvas" :key="idx" :style="{ background: item.bgColor }" @click="onChangePrize(item.id)"></div>
@@ -54,8 +54,8 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import WheelOfNames from './components/WheelOfNames/index.vue'
-import { PrizeConfig } from './components/WheelOfNames/types'
+import SpinTheWheel from './components/SpinTheWheel/index.vue'
+import { PrizeConfig } from './components/SpinTheWheel/types'
 
 const prizeId = ref(0)
 

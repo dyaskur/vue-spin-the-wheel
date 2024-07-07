@@ -8,18 +8,18 @@ export default defineConfig({
   plugins: [vue(), dts({
     rollupTypes: true,
     include: [
-      'src/components/WheelOfNames/index.vue',
-      'src/components/WheelOfNames/hooks/useRotate.ts',
-      'src/components/WheelOfNames/hooks/useCanvas.ts',
-      'src/components/WheelOfNames/types.ts',
-      'src/components/WheelOfNames/utils.ts',
+      'src/components/SpinTheWheel/index.vue',
+      'src/components/SpinTheWheel/hooks/useRotate.ts',
+      'src/components/SpinTheWheel/hooks/useCanvas.ts',
+      'src/components/SpinTheWheel/types.ts',
+      'src/components/SpinTheWheel/utils.ts',
       'src/components/install.ts'],
   })],
   build: {
     lib: {
       entry: resolve(__dirname, 'src/components/install.ts'),
-      name: 'vue-wheel-of-names',
-      fileName: 'vue-wheel-of-names',
+      name: 'vue-spin-the-wheel',
+      fileName: 'vue-spin-the-wheel',
     },
     rollupOptions: {
       // Make sure to externalize dependencies that you don’t want to bundle with your library
