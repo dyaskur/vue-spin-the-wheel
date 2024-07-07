@@ -1,4 +1,4 @@
-import {ref, computed, onMounted} from 'vue'
+import {ref, computed, onMounted, onUpdated} from 'vue'
 import type {CanvasConfig, PrizeConfig, PropsType} from '../types'
 import {getStrArray} from '../utils.ts'
 
@@ -82,6 +82,9 @@ export function useCanvas(props: PropsType) {
     if (props.type === 'canvas') drawCanvas()
   })
 
+  onUpdated(() => {
+    if (props.type === 'canvas') drawCanvas()
+  })
   return {
     wheelEl,
     canvasConfig,
