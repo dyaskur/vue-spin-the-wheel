@@ -1,5 +1,25 @@
 
 # Vue-Spin-The-Wheel For Vue3
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/vue-spin-the-wheel">
+    <img src="https://img.shields.io/npm/dt/vue-spin-the-wheel.svg" alt="Downloads total">
+  </a>
+  <a href="https://www.npmjs.com/package/vue-spin-the-wheel">
+    <img src="https://img.shields.io/npm/dm/vue-spin-the-wheel.svg" alt="Downloads per month">
+  </a>
+  <br>
+  <a href="https://github.com/dyaskur/vue-spin-the-wheel/blob/master/LICENSE.md">
+    <img src="https://img.shields.io/npm/l/vue-spin-the-wheel.svg" alt="MIT License">
+  </a>
+  <br>
+  <a href="https://www.npmjs.com/package/vue-spin-the-wheel">
+    <img src="https://img.shields.io/npm/v/vue-spin-the-wheel.svg" alt="Version">
+  </a>
+  <a href="https://www.npmjs.com/package/vue-spin-the-wheel">
+    <img src="https://img.shields.io/bundlephobia/minzip/vue-spin-the-wheel.svg" alt="Package Size">
+  </a>
+</p>
 <p align="center">
 
 _Alternative name: Wheel of Names, Wheel of Fortune, Spin the wheel_
