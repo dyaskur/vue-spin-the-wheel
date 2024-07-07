@@ -14,7 +14,7 @@
         />
 
         <div>
-          <input type="checkbox" v-model="canvasVerify"> 模拟请求：等待 {{ verifyDuration }}s 再转
+          <input type="checkbox" v-model="canvasVerify"> Simulate request: wait {{ verifyDuration }}s before forwarding
         </div>
       </div>
       <div class="col-md-6">
@@ -43,9 +43,9 @@
           <div class="btn" v-for="(item, idx) in prizesCanvas" :key="idx" :style="{ background: item.bgColor }" @click="onChangePrize(item.id)"></div>
         </div>
         <div class="wheel-result">
-          当前 100% <span :style="{ background: prizeRes.bgColor }"></span>
-          <br/> 点击按钮，可在旋转中强行改变结果,
-          <br/> 最好在旋转减速前, 大约一半的时间之前, 最好一次旋转只改变一次
+          Current 100% <span :style="{ background: prizeRes.bgColor }"></span>
+          <br/> Click the button to forcefully change the result during rotation.
+          <br/> It is best to change it only once per rotation, about halfway before the rotation slows down.
         </div>
       </div>
     </div>
@@ -71,11 +71,11 @@ const canvasOptions = {
 const prizesCanvas: PrizeConfig[] = [
   {
     id: 1,
-    name: 'Blue', // 奖品名
-    value: 'Blue\'s value', // 奖品值
-    bgColor: '#45ace9', // 背景色
-    color: '#ffffff', // 字体色
-    probability: 30 // 概率，最多保留 4 位小数
+    name: 'Blue',
+    value: 'Blue\'s value',
+    bgColor: '#45ace9',
+    color: '#ffffff',
+    probability: 30
   },
   {
     id: 2,
@@ -98,8 +98,8 @@ const prizesCanvas: PrizeConfig[] = [
 const prizesImage: PrizeConfig[] = [
   {
     id: 1,
-    value: 'Blue\'s value', // 奖品值
-    weight: 1 // 权重
+    value: 'Blue\'s value',
+    weight: 1
   },
   {
     id: 2,
@@ -127,14 +127,14 @@ function testRequest (verified: boolean, duration: number) { // 参数 1: 是否
 
 function onCanvasRotateStart (rotate: Function) {
   if (canvasVerify.value) {
-    const verified = true // true: 测试通过验证, false: 测试未通过验证
+    const verified = true // true: the test passed verification, false: the test did not pass verification
     testRequest(verified, verifyDuration * 1000).then((verifiedRes) => {
       if (verifiedRes) {
-        console.log('验证通过, 开始旋转')
-        rotate() // 调用回调, 开始旋转
-        canvasVerify.value = false // 关闭验证模式
+        console.log('Sukses cuy')
+        rotate() // Call callback to start rotation
+        canvasVerify.value = false // Turn off verification mode
       } else {
-        alert('未通过验证')
+        alert('Verification is failed')
       }
     })
     return

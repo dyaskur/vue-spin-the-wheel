@@ -31,7 +31,8 @@
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "generate:types": "vue-tsc --declaration --emitDeclarationOnly --outdir ./dist",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "vite --config vite.demo.config.ts build && gh-pages -d dist"
   },
   "files": [
     "dist"
@@ -54,6 +55,7 @@
   "devDependencies": {
     "@types/lodash": "^4.14.194",
     "@vitejs/plugin-vue": "^5.0.0",
+    "gh-pages": "^6.1.1",
     "sass": "^1.62.1",
     "typescript": "^5.0.2",
     "vite": "^5.2.6",
