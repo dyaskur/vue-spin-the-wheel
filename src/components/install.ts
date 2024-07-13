@@ -1,3 +1,9 @@
-import WheelOfNames from './WheelOfNames/index.vue'
+import SpinTheWheel from './SpinTheWheel/index.vue'
+import type {PrizeConfig} from './SpinTheWheel/types'
 
-export default WheelOfNames
+export default {
+  install: (app: any) => {
+    app.component('SpinTheWheel', SpinTheWheel)
+  }
+}
+export { SpinTheWheel, PrizeConfig}

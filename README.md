@@ -84,7 +84,7 @@ https://vue-spin-the-wheel.yaskur.com
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
-import SpinTheWheel from 'vue-spin-the-wheel'
+import {SpinTheWheel} from 'vue-spin-the-wheel'
 import 'vue-spin-the-wheel/style.css'
 
 const prizeId = ref(0)
