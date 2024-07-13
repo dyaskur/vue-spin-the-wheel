@@ -1,4 +1,4 @@
-import {ref, computed, watch} from 'vue'
+import {computed, ref, watch} from 'vue'
 import sumBy from 'lodash/sumBy'
 import random from 'lodash/random'
 import type {PrizeConfig, PropsType} from '../types'
@@ -114,8 +114,7 @@ export function useRotate(props: PropsType, emit: Function) {
   // Get the id of the random prize
   function getRandomPrize(): number {
     const len = prizesIdArr.value.length
-    const prizeId = prizesIdArr.value[random(0, len - 1)]
-    return prizeId
+    return prizesIdArr.value[random(0, len - 1)]
   }
 
   // Get the angle where the prize is located
