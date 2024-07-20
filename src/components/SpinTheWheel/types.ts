@@ -1,8 +1,10 @@
 interface PrizeConfigBase {
   id: number;
-  value: any;
+  value: string;
+  probability: number;
+  weight: number;
 
-  [propName: string]: any;
+  [propName: string]: string | number;
 }
 
 interface PrizeConfigBaseCanvas extends PrizeConfigBase {
@@ -11,23 +13,8 @@ interface PrizeConfigBaseCanvas extends PrizeConfigBase {
   color: string;
 }
 
-interface PrizeConfigProbability extends PrizeConfigBase {
-  probability: number;
-}
+export type PrizeConfig =  PrizeConfigBaseCanvas | PrizeConfigBase;
 
-interface PrizeConfigProbabilityCanvas extends PrizeConfigBaseCanvas {
-  probability: number;
-}
-
-interface PrizeConfigWeight extends PrizeConfigBase {
-  weight: number;
-}
-
-interface PrizeConfigWeightCanvas extends PrizeConfigBaseCanvas {
-  weight: number;
-}
-
-export type PrizeConfig = PrizeConfigProbability | PrizeConfigWeight | PrizeConfigProbabilityCanvas | PrizeConfigWeightCanvas;
 
 export interface CanvasConfig {
   radius?: number;

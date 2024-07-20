@@ -32,6 +32,7 @@
     "build": "vue-tsc && vite build",
     "generate:types": "vue-tsc --declaration --emitDeclarationOnly --outdir ./dist",
     "preview": "vite preview",
+    "lint": "eslint --fix",
     "deploy": "vite --config vite.demo.config.ts build && gh-pages -d dist --cname vue-spin-the-wheel.yaskur.com"
   },
   "files": [

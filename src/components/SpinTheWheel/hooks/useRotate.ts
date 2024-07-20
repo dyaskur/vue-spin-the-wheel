@@ -3,7 +3,7 @@ import sumBy from 'lodash/sumBy'
 import random from 'lodash/random'
 import type {PrizeConfig, PropsType} from '../types'
 
-export function useRotate(props: PropsType, emit: Function) {
+export function useRotate(props: PropsType, emit: (rotateStart: string, onRotateStart?: () => void) => void) {
   const isRotating = ref(false)
   const rotateEndDeg = ref(0)
   const prizeRes = ref()

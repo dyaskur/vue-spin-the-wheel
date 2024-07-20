@@ -125,7 +125,7 @@ function testRequest (verified: boolean, duration: number) { // 参数 1: 是否
   })
 }
 
-function onCanvasRotateStart (rotate: Function) {
+function onCanvasRotateStart (rotate: () => void) {
   if (canvasVerify.value) {
     const verified = true // true: the test passed verification, false: the test did not pass verification
     testRequest(verified, verifyDuration * 1000).then((verifiedRes) => {
