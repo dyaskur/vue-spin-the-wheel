@@ -5,12 +5,12 @@
         <h2> Canvas </h2>
 
         <SpinTheWheel
-          style="width: 500px; max-width: 100%;"
-          :verify="canvasVerify"
-          :canvas="canvasOptions"
-          :prizes="prizesCanvas"
-          @rotateStart="onCanvasRotateStart"
-          @rotateEnd="onRotateEnd"
+            style="width: 500px; max-width: 100%;"
+            :verify="canvasVerify"
+            :canvas="canvasOptions"
+            :prizes="prizesCanvas"
+            @rotateStart="onCanvasRotateStart"
+            @rotateEnd="onRotateEnd"
         />
 
         <div>
@@ -21,18 +21,18 @@
         <h2> Image </h2>
 
         <SpinTheWheel
-          style="width: 500px; max-width: 100%;"
-          type="image"
-          :useWeight="true"
-          :verify="canvasVerify"
-          :prizeId="prizeId"
-          :angleBase="-2"
-          :prizes="prizesImage"
-          @rotateStart="onImageRotateStart"
-          @rotateEnd="onRotateEnd"
+            style="width: 500px; max-width: 100%;"
+            type="image"
+            :useWeight="true"
+            :verify="canvasVerify"
+            :prizeId="prizeId"
+            :angleBase="-2"
+            :prizes="prizesImage"
+            @rotateStart="onImageRotateStart"
+            @rotateEnd="onRotateEnd"
         >
           <template #wheel>
-            <img src="./assets/wheel.png" style="width: 100%;transform: rotateZ(60deg)" />
+            <img src="./assets/wheel.png" style="width: 100%;transform: rotateZ(60deg)"/>
           </template>
           <template #button>
             <img src="./assets/button.png" style="width: 180px"/>
@@ -40,7 +40,8 @@
         </SpinTheWheel>
 
         <div class="btn-list">
-          <div class="btn" v-for="(item, idx) in prizesCanvas" :key="idx" :style="{ background: item.bgColor }" @click="onChangePrize(item.id)"></div>
+          <div class="btn" v-for="(item, idx) in prizesCanvas" :key="idx" :style="{ background: item.bgColor }"
+               @click="onChangePrize(item.id)"></div>
         </div>
         <div class="wheel-result">
           Current 100% <span :style="{ background: prizeRes.bgColor }"></span>
@@ -53,19 +54,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import {ref, computed} from 'vue'
 import SpinTheWheel from './components/SpinTheWheel/index.vue'
-import { PrizeConfig } from './components/SpinTheWheel/types'
+import {CanvasConfig, PrizeConfig} from './components/SpinTheWheel/types'
 
 const prizeId = ref(0)
 
 const canvasVerify = ref(false)
 const verifyDuration = 2
-const canvasOptions = {
+const canvasOptions: CanvasConfig = {
   btnWidth: 140,
   borderColor: '#584b43',
   borderWidth: 6,
-  lineHeight: 30
+  lineHeight: 30,
 }
 
 const prizesCanvas: PrizeConfig[] = [
@@ -75,7 +76,7 @@ const prizesCanvas: PrizeConfig[] = [
     value: 'Blue\'s value',
     bgColor: '#45ace9',
     color: '#ffffff',
-    probability: 30
+    probability: 30,
   },
   {
     id: 2,
@@ -83,7 +84,7 @@ const prizesCanvas: PrizeConfig[] = [
     value: 'Red\'s value',
     bgColor: '#dd3832',
     color: '#ffffff',
-    probability: 40
+    probability: 40,
   },
   {
     id: 3,
@@ -91,33 +92,33 @@ const prizesCanvas: PrizeConfig[] = [
     value: 'Yellow\'s value',
     bgColor: '#fef151',
     color: '#ffffff',
-    probability: 30
-  }
+    probability: 30,
+  },
 ]
 
 const prizesImage: PrizeConfig[] = [
   {
     id: 1,
     value: 'Blue\'s value',
-    weight: 1
+    weight: 1,
   },
   {
     id: 2,
     value: 'Red\'s value',
-    weight: 0
+    weight: 0,
   },
   {
     id: 3,
     value: 'Yellow\'s value',
-    weight: 0
-  }
+    weight: 0,
+  },
 ]
 
 const prizeRes = computed(() => {
   return prizesCanvas.find(item => item.id === prizeId.value) || prizesCanvas[0]
 })
 
-function testRequest (verified: boolean, duration: number) { // 参数 1: 是否通过验证, 2: 延迟时间
+function testRequest(verified: boolean, duration: number) { // 参数 1: 是否通过验证, 2: 延迟时间
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(verified)
@@ -125,7 +126,7 @@ function testRequest (verified: boolean, duration: number) { // 参数 1: 是否
   })
 }
 
-function onCanvasRotateStart (rotate: () => void) {
+function onCanvasRotateStart(rotate: () => void) {
   if (canvasVerify.value) {
     const verified = true // true: the test passed verification, false: the test did not pass verification
     testRequest(verified, verifyDuration * 1000).then((verifiedRes) => {
@@ -142,15 +143,15 @@ function onCanvasRotateStart (rotate: () => void) {
   console.log('onCanvasRotateStart')
 }
 
-function onImageRotateStart () {
+function onImageRotateStart() {
   console.log('onImageRotateStart')
 }
 
-function onRotateEnd (prize: PrizeConfig) {
+function onRotateEnd(prize: PrizeConfig) {
   alert(prize.value)
 }
 
-function onChangePrize (id: number) {
+function onChangePrize(id: number) {
   prizeId.value = id
 }
 

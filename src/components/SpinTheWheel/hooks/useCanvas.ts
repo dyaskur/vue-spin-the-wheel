@@ -18,7 +18,7 @@ const canvasDefaultConfig: CanvasConfig = {
 export function useCanvas(props: PropsType) {
   const wheelEl = ref()
   const canvasConfig = computed(() => {
-    return Object.assign(canvasDefaultConfig, props.canvas) as PrizeConfig
+    return Object.assign(canvasDefaultConfig, props.canvas || {}) as CanvasConfig
   })
 
   // drawing HTML5 canvas
@@ -26,6 +26,8 @@ export function useCanvas(props: PropsType) {
     const canvasEl = wheelEl.value as HTMLCanvasElement
     if (canvasEl.getContext) {
       const {radius, textRadius, borderWidth, borderColor, fontSize} = canvasConfig.value
+      if (!radius || !textRadius || !borderWidth || !borderColor || !fontSize)
+        throw new Error('radius, textRadius, borderWidth, borderColor, and fontSize are required')
       // Calculate the angle of the circle based on the number of prizes
       const arc = Math.PI / (props.prizes.length / 2)
       const ctx = canvasEl.getContext('2d') as CanvasRenderingContext2D
@@ -36,9 +38,9 @@ export function useCanvas(props: PropsType) {
       ctx.lineWidth = borderWidth * 2
       // The font property sets or returns the current font properties of the text content on the canvas
       ctx.font = `${fontSize}px Arial`
-      props.prizes.forEach((row, i) => {
+      props.prizes.forEach((row: PrizeConfig, i) => {
         const angle = i * arc - Math.PI / 2
-        ctx.fillStyle = row.bgColor
+        ctx.fillStyle = row.bgColor as string
         ctx.beginPath()
         // arc(x, y, r, start angle, end angle, drawing direction) method creates arcs/curves (used to create circles or partial circles)
         ctx.arc(radius, radius, radius - borderWidth, angle, angle + arc, false)
@@ -48,11 +50,11 @@ export function useCanvas(props: PropsType) {
         // Lock the canvas (to save the previous canvas state)
         ctx.save()
         // ----Name drawing begins----
-        ctx.fillStyle = row.color
+        ctx.fillStyle = row.color as string
         // The translate method remaps the (0, 0) position on the canvas
         ctx.translate(radius + Math.cos(angle + arc / 2) * textRadius, radius + Math.sin(angle + arc / 2) * textRadius)
         // The rotate method rotates the current drawing
-        drawPrizeText(ctx, angle, arc, row.name)
+        drawPrizeText(ctx, angle, arc, row.name as string)
         // Return (adjust) the current canvas to the state before the last save()
         ctx.restore()
         // ----Name drawing ends----
@@ -63,6 +65,8 @@ export function useCanvas(props: PropsType) {
   // Draw the award text
   function drawPrizeText(ctx: CanvasRenderingContext2D, angle: number, arc: number, name: string) {
     const {lineHeight, textLength, textDirection} = canvasConfig.value
+    if (!lineHeight || !textLength || !textDirection)
+      throw new Error('lineHeight, textLength, and textDirection are required')
     // The following code renders different effects according to the prize type and prize name length, such as font, color, and image effects. (Change according to actual situation)
     const content = getStrArray(name, textLength)
     if (content === null) return

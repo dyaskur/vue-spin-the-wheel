@@ -1,10 +1,10 @@
 interface PrizeConfigBase {
   id: number;
   value: string;
-  probability: number;
-  weight: number;
+  probability?: number;
+  weight?: number;
 
-  [propName: string]: string | number;
+  [propName: string]: string | number | undefined;
 }
 
 interface PrizeConfigBaseCanvas extends PrizeConfigBase {
@@ -13,8 +13,7 @@ interface PrizeConfigBaseCanvas extends PrizeConfigBase {
   color: string;
 }
 
-export type PrizeConfig =  PrizeConfigBaseCanvas | PrizeConfigBase;
-
+export type PrizeConfig = PrizeConfigBaseCanvas | PrizeConfigBase;
 
 export interface CanvasConfig {
   radius?: number;
@@ -34,7 +33,7 @@ export interface PropsType {
   useWeight: boolean;
   disabled: boolean;
   verify: boolean;
-  canvas: CanvasConfig;
+  canvas?: CanvasConfig;
   duration: number;
   timingFun: string;
   angleBase: number;

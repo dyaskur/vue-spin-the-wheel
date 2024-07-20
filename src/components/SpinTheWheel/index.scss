@@ -3,6 +3,7 @@
   display: inline-block;
   font-size: 0;
   overflow: hidden;
+
   canvas, img {
     display: block;
     width: 100%;
@@ -39,7 +40,8 @@
   align-items: center;
   cursor: pointer;
   user-select: none;
-  &:after{
+
+  &:after {
     content: "";
     display: block;
     width: 0;
@@ -52,7 +54,8 @@
     left: 50%;
     transform: translateX(-50%);
   }
-  &:before{
+
+  &:before {
     content: "";
     display: block;
     width: 0;
