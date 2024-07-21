@@ -1,6 +1,4 @@
 import {computed, ref, watch} from 'vue'
-import sumBy from 'lodash/sumBy'
-import random from 'lodash/random'
 import type {PrizeConfig, PropsType} from '../types'
 
 export function useRotate(props: PropsType, emit: (event: 'rotateStart' | 'rotateEnd', onRotateStart?: () => void) => void) {
@@ -10,7 +8,7 @@ export function useRotate(props: PropsType, emit: (event: 'rotateStart' | 'rotat
 
   const probabilityTotal = computed(() => {
     if (props.useWeight) return 100
-    return sumBy(props.prizes, (row: PrizeConfig) => row.probability || 0)
+    return props.prizes.reduce((sum, row: PrizeConfig) => sum + (row.probability || 0), 0)
   })
 
   const decimalSpaces = computed(() => {
@@ -110,11 +108,15 @@ export function useRotate(props: PropsType, emit: (event: 'rotateStart' | 'rotat
     rotateEndDeg.value %= 360
     emit('rotateEnd', prizeRes.value)
   }
-
+  function getRandomInt(min: number, max: number) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
   // Get the id of the random prize
   function getRandomPrize(): number {
     const len = prizesIdArr.value.length
-    return prizesIdArr.value[random(0, len - 1)]
+    return prizesIdArr.value[getRandomInt(0, len - 1)]
   }
 
   // Get the angle where the prize is located
