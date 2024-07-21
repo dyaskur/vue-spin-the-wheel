@@ -1,6 +1,6 @@
 {
   "name": "vue-spin-the-wheel",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "type": "module",
   "author": "Xiaolin Zhu",
   "contributors": [
@@ -12,7 +12,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "email": "290353548@qq.com"
+    "email": "dyas@yaskur.com"
   },
   "keywords": [
     "wheel-of-names",
