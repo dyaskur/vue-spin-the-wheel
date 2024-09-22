@@ -85,7 +85,7 @@ export function useRotate(props: PropsType, emit: (event: 'rotateStart' | 'rotat
     return true
   }
 
-  function handleClick(): void {
+  function handleRotate(): void {
     if (!canRotate.value) return
     if (props.verify) {
       emit('rotateStart', onRotateStart)
@@ -128,8 +128,8 @@ export function useRotate(props: PropsType, emit: (event: 'rotateStart' | 'rotat
   }
 
   return {
+    handleRotate,
     rotateStyle,
-    handleClick,
     onRotateEnd,
   }
 }

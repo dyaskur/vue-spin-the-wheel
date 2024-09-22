@@ -32,6 +32,7 @@ export interface PropsType {
   type: string;
   useWeight: boolean;
   disabled: boolean;
+  canRotate: boolean;
   verify: boolean;
   canvas?: CanvasConfig;
   duration: number;

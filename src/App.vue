@@ -9,6 +9,7 @@
             :verify="canvasVerify"
             :canvas="canvasOptions"
             :prizes="prizesCanvas"
+            :canRotate="true"
             @rotateStart="onCanvasRotateStart"
             @rotateEnd="onRotateEnd"
         />
@@ -28,6 +29,7 @@
             :prizeId="prizeId"
             :angleBase="-2"
             :prizes="prizesImage"
+            :canRotate="true"
             @rotateStart="onImageRotateStart"
             @rotateEnd="onRotateEnd"
         >

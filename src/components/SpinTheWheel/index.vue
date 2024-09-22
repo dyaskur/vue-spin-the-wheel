@@ -21,10 +21,10 @@
           v-if="type === 'canvas'"
           class="fw-btn__btn"
           :style="{ width: canvasConfig.btnWidth + 'px', height: canvasConfig.btnWidth + 'px'}"
-          @click="handleClick">
+          @click="handleRotate">
         {{ canvasConfig.btnText }}
       </div>
-      <div v-else class="fw-btn__image" @click="handleClick">
+      <div v-else class="fw-btn__image" @click="handleRotate">
         <slot name="button"/>
       </div>
     </div>
@@ -40,6 +40,7 @@ interface PropsType {
   type?: string;
   useWeight?: boolean;
   disabled?: boolean;
+  canRotate?: boolean;
   verify?: boolean;
   canvas?: CanvasConfig;
   duration?: number;
@@ -54,7 +55,8 @@ const props = withDefaults(
     {
       type: 'canvas', // canvas || image
       useWeight: false, // Calculate probability by weight
-      disabled: false, // disable the spinner
+      disabled: false, // disable the spin button click
+      canRotate: false, // can rotate via method startRotate
       verify: false, // Whether to enable verification
       duration: 6000, // The time from one rotation, in milliseconds
       timingFun: 'cubic-bezier(0.36, 0.95, 0.64, 1)', // The transition time function of the turntable's rotation
@@ -67,11 +69,12 @@ const props = withDefaults(
 const emit = defineEmits(['rotateStart', 'rotateEnd'])
 
 const {wheelEl, canvasConfig} = useCanvas(props)
-const {handleClick, rotateStyle, onRotateEnd} = useRotate(props, emit)
+const {handleRotate, rotateStyle, onRotateEnd} = useRotate(props, emit)
 
 defineExpose({
   startRotate: (): void => {
-    handleClick()
+    console.log('startRotate')
+    handleRotate()
   },
 })
 </script>

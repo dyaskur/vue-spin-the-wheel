@@ -200,32 +200,33 @@ function onChangePrize (id) {
 | rotateEnd | Triggered at the end of the turntable animation | The entire prize Object |
 
 ## SpinTheWheel Methods
-| Event name | Description | Callback parameters |
-| ------ | ------ | ------ |
-| startRotate | Can trigger rotation | When `verify` is `true`, the callback function is triggered in the rotateStart event |
+| Event name | Description | Callback parameters                                                                                                                            |
+| ------ | ------ |------------------------------------------------------------------------------------------------------------------------------------------------|
+| startRotate | Can trigger rotation | When `verify` is `true`, the callback function is triggered in the rotateStart event. To enable rotation when disabled, set `canRotate` to `true`. |
 
 ## SpinTheWheel Attributes
-| Parameters | Description | Type | Default Value |
-| ------ | ------ | ------ | ----- |
-| type | Type of turntable (canvas, image) | String | canvas |
-| useWeight | Whether to calculate probability by weight | Boolean | false |
-| disabled | Whether to disable (after disabled, click the button will not rotate) | Boolean | false |
-| verify | Whether to enable verification mode | Boolean | false |
-| canvas.radius | Radius of circle (type: canvas) | Number | 250 |
-| canvas.textRadius | The distance of the text from the center of the circle (type: canvas) | Number | 190 |
-| canvas.textLength | A few characters in one line of the prize, beyond the line break (maximum two lines) | Number | 6 |
-| canvas.textDirection | Prize text direction (horizontal, vertical) | String | horizontal |
-| canvas.lineHeight | Text line height (type: canvas) | Number | 20 |
-| canvas.borderWidth | Round outer border (type: canvas) | Number | 0 |
-| canvas.borderColor | Color value of the outer border (type: canvas) | String | transparent |
-| canvas.btnText | Button text (type: canvas) | String | GO |
-| canvas.btnWidth | Button width (px) | Number | 140 |
-| canvas.fontSize | Prize size (px) | Number | 34 |
-| duration | Time to complete one rotation (unit: ms) | Number | 6000 |
-| timingFun | Css time function of rotation transition | String | cubic-bezier(0.36, 0.95, 0.64, 1) |
-| angleBase | Number of rotations (angleBase * 360 is the total angle of one rotation, it can be reversed when it is a negative number) | Number | 10 |
+| Parameters | Description                                                                                                                                                                                                        | Type | Default Value |
+| ------ |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ------ | ----- |
+| type | Type of turntable (canvas, image)                                                                                                                                                                                  | String | canvas |
+| useWeight | Whether to calculate probability by weight                                                                                                                                                                         | Boolean | false |
+| disabled | Whether to disable (after disabled, click the button will not rotate)                                                                                                                                              | Boolean | false |
+| canRotate | Whether to allow rotate using `startRotate` method when button is disabled                                                                                                                                         | Boolean | false |
+| verify | Whether to enable verification mode                                                                                                                                                                                | Boolean | false |
+| canvas.radius | Radius of circle (type: canvas)                                                                                                                                                                                    | Number | 250 |
+| canvas.textRadius | The distance of the text from the center of the circle (type: canvas)                                                                                                                                              | Number | 190 |
+| canvas.textLength | A few characters in one line of the prize, beyond the line break (maximum two lines)                                                                                                                               | Number | 6 |
+| canvas.textDirection | Prize text direction (horizontal, vertical)                                                                                                                                                                        | String | horizontal |
+| canvas.lineHeight | Text line height (type: canvas)                                                                                                                                                                                    | Number | 20 |
+| canvas.borderWidth | Round outer border (type: canvas)                                                                                                                                                                                  | Number | 0 |
+| canvas.borderColor | Color value of the outer border (type: canvas)                                                                                                                                                                     | String | transparent |
+| canvas.btnText | Button text (type: canvas)                                                                                                                                                                                         | String | GO |
+| canvas.btnWidth | Button width (px)                                                                                                                                                                                                  | Number | 140 |
+| canvas.fontSize | Prize size (px)                                                                                                                                                                                                    | Number | 34 |
+| duration | Time to complete one rotation (unit: ms)                                                                                                                                                                           | Number | 6000 |
+| timingFun | Css time function of rotation transition                                                                                                                                                                           | String | cubic-bezier(0.36, 0.95, 0.64, 1) |
+| angleBase | Number of rotations (angleBase * 360 is the total angle of one rotation, it can be reversed when it is a negative number)                                                                                          | Number | 10 |
 | prizeId | Specify the id, it will spin to the prize of this id every time (when it is 0, the value can be changed during the rotation according to the probability of each prize itself to complete various show operations) | Number | 0 |
-| prizes | Prize list (structure reference Usage) | Array | / |
+| prizes | Prize list (structure reference Usage)                                                                                                                                                                             | Array | / |
 
 ### 📑 License
 
